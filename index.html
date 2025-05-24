@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function getComputerChoice() {
+            let temp = Math.random()
+            if (temp < 0.33) {
+                return 'rock';
+            }
+            else if (temp > 0.33 && temp < 0.66) {
+                return 'paper';
+            }
+            else {
+                return 'scissor';
+            }
+        }
+
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice == computerChoice) {
+                console.log("Match Tied!");
+                humanScore += 1;
+                computerScore += 1;
+            }
+            else if (humanChoice == 'rock') {
+                if (computerChoice == 'paper') {
+                    console.log("Paper beats Rock, You Lose! :(");
+                    computerScore += 1;
+                }
+                else {
+                    console.log("Rock beats Scissor, You Won! :)");
+                    humanScore += 1;
+                }
+            }
+            else if (humanChoice == 'paper') {
+                if (computerChoice == 'scissor') {
+                    console.log("Scissor beats Paper, You Lose! :(");
+                    computerScore += 1;
+                }
+                else {
+                    console.log("Paper beats Rock, You Won! :)");
+                    humanScore += 1;
+                }
+            }
+            else if (humanChoice == 'scissor') {
+                if (computerChoice == 'rock') {
+                    console.log("Rock beats Scissor, You Lose! :(");
+                    computerScore += 1;
+                }
+                else {
+                    console.log("Scissor beats Paper, You Won! :)");
+                    humanScore += 1;
+                }
+            }
+        }
+
+        let humanChoice = prompt("Your turn: ");
+        humanChoice = humanChoice.toLowerCase();
+        let computerChoice = getComputerChoice();
+        console.log(`Human Choice: ${humanChoice}, Computer Score: ${computerChoice}`);
+        playRound(humanChoice, computerChoice);
+
+        humanChoice = prompt("Your turn: ");
+        humanChoice = humanChoice.toLowerCase();
+        computerChoice = getComputerChoice();
+        console.log(`Human Choice: ${humanChoice}, Computer Score: ${computerChoice}`);
+        playRound(humanChoice, computerChoice);
+        
+        humanChoice = prompt("Your turn: ");
+        humanChoice = humanChoice.toLowerCase();
+        computerChoice = getComputerChoice();
+        console.log(`Human Choice: ${humanChoice}, Computer Score: ${computerChoice}`);
+        playRound(humanChoice, computerChoice);
+        
+        humanChoice = prompt("Your turn: ");
+        humanChoice = humanChoice.toLowerCase();
+        computerChoice = getComputerChoice();
+        console.log(`Human Choice: ${humanChoice}, Computer Score: ${computerChoice}`);
+        playRound(humanChoice, computerChoice);
+        
+        humanChoice = prompt("Your turn: ");
+        humanChoice = humanChoice.toLowerCase();
+        computerChoice = getComputerChoice();
+        console.log(`Human Choice: ${humanChoice}, Computer Score: ${computerChoice}`);
+        playRound(humanChoice, computerChoice);
+
+        console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
+    </script>
+</body>
+</html>
